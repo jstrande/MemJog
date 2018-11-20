@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
 
-    let itemArray = ["Clean House", "Learn Swift", "Book Flight", "Cook Tacos"]
+    var itemArray = ["Clean House", "Learn Swift", "Book Flight", "Cook Tacos"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +35,36 @@ class ToDoListViewController: UITableViewController {
         else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        
         tableView.deselectRow(at: indexPath, animated: true);
-        
-        
-        
     }
+    //override func tabl
 
+    //MARK -- Add New Items
+    
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField();
+        
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            //what happens when the person clicks the add item alert thing
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData();
+            
+        }
+        alert.addTextField(configurationHandler: { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+            textField = alertTextField;
+            
+        })
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func addItem () {
+        //once this works, refactor things...
+    }
     
 }
 

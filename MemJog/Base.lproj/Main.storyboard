@@ -31,7 +31,14 @@
                             <outlet property="delegate" destination="M3h-ep-N4g" id="xGJ-5Q-UAd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Memory Jog" id="qZd-RQ-Yyy"/>
+                    <navigationItem key="navigationItem" title="Memory Jog" id="qZd-RQ-Yyy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="OnK-jQ-gLb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="M3h-ep-N4g" id="ePN-V6-NMb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkn-DK-1Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
