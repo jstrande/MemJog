@@ -13,12 +13,21 @@ class ToDoListViewController: UITableViewController {
     //var itemArray = ["Clean House", "Learn Swift", "Book Flight", "Cook Tacos"]
     var itemArray = [ToDoItem]()
     
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("MemJogItems.plist");
     
-    let defaults = UserDefaults.standard
+    //let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        print(dataFilePath!);
+        /*
+        // dataFilePath =
+        //Users/jonstrande/Library/Developer/CoreSimulator/Devices/38DEC7D1-3B2B-4192-9EA3-BA083281EBCD/data/Containers/Data/Application/F46BCBD7-A047-4F8B-8F3A-D046673B6E3B/Documents/
+         */
+        /*
         let newItem = ToDoItem()
         newItem.toDoItemTitle = "Clean the house";
         newItem.isDone = false
@@ -33,10 +42,16 @@ class ToDoListViewController: UITableViewController {
         newItem3.toDoItemTitle = "Book Flight";
         newItem3.isDone = false
         itemArray.append(newItem3);
+        */
         
+        //COMMENTED THIS OUT TO STOP ERROR... need to update this as this should be
+        //okay once we create a new 'defaults'
+        /*
         if let items = defaults.array(forKey: "ToDoList") as? [ToDoItem] {
             itemArray = items;
         }
+        */
+        loadItems();
         
     }
 
@@ -50,6 +65,7 @@ class ToDoListViewController: UITableViewController {
         let item = itemArray[indexPath.row];
         cell.textLabel?.text = item.toDoItemTitle;
        
+        
         //THIS ONE LINE
         //cell.accessoryType = item.isDone == true ? .checkmark : .none;
         
@@ -69,7 +85,7 @@ class ToDoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         itemArray[indexPath.row].isDone = !itemArray[indexPath.row].isDone;
-        tableView.reloadData()
+        saveItems()
         tableView.deselectRow(at: indexPath, animated: true);
     }
     //override func tabl
@@ -85,28 +101,12 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
             
-            print("CREATING NEW ITEM")
-            //what happens when the person clicks the add item alert thing
+            //this is what happens when the person clicks the add item alert thing
             let newItemX = ToDoItem();
             newItemX.toDoItemTitle = textField.text!
-            print("NEW ITEM CREATED: " + newItemX.toDoItemTitle);
-            
-            print("APPENDING TO ARRAY")
+
             self.itemArray.append(newItemX)
-            print("SETTING INTO DEFAULS")
-            
-            /******************************************
-             //
-             // I have a bug here - it crashes when I set this 
-             //
-             //
- 
-            */
-            
-            
-            self.defaults.set(self.itemArray, forKey: "ToDoList");
-            print("RELOADING TABLE VIEW")
-            self.tableView.reloadData();
+            self.saveItems()
             
         }
         alert.addTextField(configurationHandler: { (alertTextField) in
@@ -120,6 +120,32 @@ class ToDoListViewController: UITableViewController {
     
     func addItem () {
         //once this works, refactor things...
+    }
+    
+    //MARK -- SAVE ITMEMS
+    
+    func saveItems () {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(itemArray);
+            try data.write(to: dataFilePath!);
+        }
+        catch {
+            print("inside catch of encoder.encode, \(error)")
+        }
+        self.tableView.reloadData();
+    }
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let myDecoder =  PropertyListDecoder()
+            do {
+                itemArray = try myDecoder.decode([ToDoItem].self, from: data);
+            }
+            catch {
+                print("error decoding items from itemARray \(error)");
+            }
+        }
     }
     
 }
