@@ -8,8 +8,10 @@
 
 import Foundation
 
-class ToDoItem : Encodable, Decodable {
- 
+//class ToDoItem : Encodable, Decodable {
+
+class ToDoItem : Codable {
+
     var toDoItemTitle: String = "";
     var isDone: Bool = false;
     

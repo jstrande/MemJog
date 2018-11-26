@@ -13,6 +13,8 @@ class ToDoListViewController: UITableViewController {
     //var itemArray = ["Clean House", "Learn Swift", "Book Flight", "Cook Tacos"]
     var itemArray = [ToDoItem]()
     
+    //Note, the file name here - can have multiple plist files...
+    //one plist for each category of to do items
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("MemJogItems.plist");
     
     //let defaults = UserDefaults.standard
@@ -27,30 +29,7 @@ class ToDoListViewController: UITableViewController {
         // dataFilePath =
         //Users/jonstrande/Library/Developer/CoreSimulator/Devices/38DEC7D1-3B2B-4192-9EA3-BA083281EBCD/data/Containers/Data/Application/F46BCBD7-A047-4F8B-8F3A-D046673B6E3B/Documents/
          */
-        /*
-        let newItem = ToDoItem()
-        newItem.toDoItemTitle = "Clean the house";
-        newItem.isDone = false
-        itemArray.append(newItem);
-        
-        let newItem2 = ToDoItem()
-        newItem2.toDoItemTitle = "Learn Swift";
-        newItem2.isDone = true;
-        itemArray.append(newItem2);
-        
-        let newItem3 = ToDoItem()
-        newItem3.toDoItemTitle = "Book Flight";
-        newItem3.isDone = false
-        itemArray.append(newItem3);
-        */
-        
-        //COMMENTED THIS OUT TO STOP ERROR... need to update this as this should be
-        //okay once we create a new 'defaults'
-        /*
-        if let items = defaults.array(forKey: "ToDoList") as? [ToDoItem] {
-            itemArray = items;
-        }
-        */
+
         loadItems();
         
     }
