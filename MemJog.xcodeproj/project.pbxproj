@@ -11,9 +11,9 @@
 		0D784BC621A450E30060026F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D784BC521A450E30060026F /* AppDelegate.swift */; };
 		0D784BC821A450E30060026F /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D784BC721A450E30060026F /* ToDoListViewController.swift */; };
 		0D784BCB21A450E30060026F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D784BC921A450E30060026F /* Main.storyboard */; };
-		0D784BCD21A450E50060026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D784BCC21A450E50060026F /* Assets.xcassets */; };
 		0D784BD021A450E50060026F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D784BCE21A450E50060026F /* LaunchScreen.storyboard */; };
 		0DF1DBC221B07C6500994102 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1DBC121B07C6500994102 /* CategoryViewController.swift */; };
+		A2F9D4CB3CE99C5F2A4BF435 /* Pods_MemJog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F524E66395303A7387F459 /* Pods_MemJog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +22,12 @@
 		0D784BC521A450E30060026F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D784BC721A450E30060026F /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		0D784BCA21A450E30060026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0D784BCC21A450E50060026F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D784BCF21A450E50060026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D784BD121A450E50060026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF1DBC121B07C6500994102 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		50F8E2DDBE61C84D78B052FD /* Pods-MemJog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemJog.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemJog/Pods-MemJog.release.xcconfig"; sourceTree = "<group>"; };
+		A32D69E162406339A5241EA4 /* Pods-MemJog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemJog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemJog/Pods-MemJog.debug.xcconfig"; sourceTree = "<group>"; };
+		B6F524E66395303A7387F459 /* Pods_MemJog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemJog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2F9D4CB3CE99C5F2A4BF435 /* Pods_MemJog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,8 @@
 			children = (
 				0D784BC421A450E30060026F /* MemJog */,
 				0D784BC321A450E30060026F /* Products */,
+				7878AF87D7C4750AFEE9046D /* Pods */,
+				F754B25EC594FCDE48967E4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +101,26 @@
 		0D9042D521A5D92700F6A71E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				0D784BCC21A450E50060026F /* Assets.xcassets */,
 				0D784BCE21A450E50060026F /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		7878AF87D7C4750AFEE9046D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A32D69E162406339A5241EA4 /* Pods-MemJog.debug.xcconfig */,
+				50F8E2DDBE61C84D78B052FD /* Pods-MemJog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F754B25EC594FCDE48967E4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6F524E66395303A7387F459 /* Pods_MemJog.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D784BD421A450E50060026F /* Build configuration list for PBXNativeTarget "MemJog" */;
 			buildPhases = (
+				E40D7DBCEF8A143F8E9DD0B1 /* [CP] Check Pods Manifest.lock */,
 				0D784BBE21A450E30060026F /* Sources */,
 				0D784BBF21A450E30060026F /* Frameworks */,
 				0D784BC021A450E30060026F /* Resources */,
+				57D6F63B39422D0AC15DC869 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,12 +184,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D784BD021A450E50060026F /* LaunchScreen.storyboard in Resources */,
-				0D784BCD21A450E50060026F /* Assets.xcassets in Resources */,
 				0D784BCB21A450E30060026F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57D6F63B39422D0AC15DC869 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MemJog/Pods-MemJog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MemJog/Pods-MemJog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E40D7DBCEF8A143F8E9DD0B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemJog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D784BBE21A450E30060026F /* Sources */ = {
@@ -320,6 +389,7 @@
 		};
 		0D784BD521A450E50060026F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A32D69E162406339A5241EA4 /* Pods-MemJog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +408,7 @@
 		};
 		0D784BD621A450E50060026F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50F8E2DDBE61C84D78B052FD /* Pods-MemJog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import SwipeCellKit
+
 
 class CategoryViewController: UITableViewController {
 
@@ -27,11 +29,25 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryArray.count
     }
+    
+    /*
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SwipeTableViewCell
+        cell.delegate = self
+        return cell
+     }
+ 
+     */
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
         let category = categoryArray[indexPath.row];
         cell.textLabel?.text = category.name;
         cell.accessoryType = .disclosureIndicator;
+        
+        cell.delegate = self;
+        
         return cell;
     }
     
@@ -97,6 +113,25 @@ class CategoryViewController: UITableViewController {
             print("Error loading categories when fetching \(error)");
         }
         tableView.reloadData();
+    }
+    
+}
+
+//MARK: - SwipeTableViewCellDelegate extension
+extension CategoryViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            print("Item Deleted")
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "Trash Icon")
+        
+        return [deleteAction]
     }
     
 }
